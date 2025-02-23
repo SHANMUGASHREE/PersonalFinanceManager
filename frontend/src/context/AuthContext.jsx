@@ -1,40 +1,52 @@
 import { createContext, useState, useContext } from "react";
+import PropTypes from "prop-types";
 
-const AuthContext = createContext();
+// Create AuthContext
+export const AuthContext = createContext();
 
+// AuthProvider Component
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
-  // ✅ Track expenses and budget globally
   const [expenses, setExpenses] = useState([]);
   const [budget, setBudget] = useState(0);
 
-  // 🔹 Login function
+  // Login Function
   const login = (userData) => {
     setUser(userData);
   };
 
-  // 🔹 Logout function
+  // Logout Function
   const logout = () => {
     setUser(null);
   };
 
-  // 🔹 Function to add new expense
-  const addExpense = (newExpense) => {
-    setExpenses([...expenses, newExpense]);
+  // Add Expense Function
+  const addExpense = (expense) => {
+    setExpenses((prevExpenses) => [...prevExpenses, expense]);
   };
 
-  // 🔹 Function to update budget
+  // Update Budget Function
   const updateBudget = (newBudget) => {
     setBudget(newBudget);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, expenses, addExpense, budget, updateBudget }}>
+    <AuthContext.Provider value={{ user, login, logout, expenses, addExpense, setExpenses, budget, updateBudget }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// ✅ Custom hook to use AuthContext
-export const useAuth = () => useContext(AuthContext);
+// PropTypes Validation
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+// Custom Hook for Context
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useAuth } from "../context/AuthContext"; // ✅ Ensure correct import
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import "../styles/SetBudget.css";
 
 const SetBudget = () => {

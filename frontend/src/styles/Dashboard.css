@@ -1,11 +1,50 @@
 .dashboard-container {
     text-align: center;
     padding: 50px;
-    
     height: 100vh;
-    color: white;
+    color: rgb(22, 9, 9);
+  }
+  .dashboard-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #6816cd;
+    padding: 8px 10px;
+    display: flex;
+    z-index: 1000;
+    margin-bottom: 20px;
   }
   
+  .dash-title {
+    color: white;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: bold;
+    left: 45%;
+    text-align: center;
+    position: relative;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .dash-subtitle {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #fdfbfb;
+    display: block;
+    margin-top: 8px;
+  }
+  .welcome-section h1 {
+    margin-top: 100px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .welcome-section p {
+    font-size: 1rem;
+    color: #555;
+  }
+
   .dashboard-options {
     margin-top: 20px;
   }

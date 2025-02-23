@@ -1,27 +1,35 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../styles/Dashboard.css';
+import { useNavigate } from "react-router-dom";
+import "../styles/Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
 
   return (
     <div className="dashboard-container">
-      <h1>Welcome to Your Personal Finance Manager</h1>
+      {/* Trackify Branding */}
+      <div className="dashboard-header">
+        <h2 className="dash-title">
+          TRACKIFY <span className="dash-subtitle">Smarter Spending, Better Saving!</span>
+        </h2>
+      </div>
+
+      {/* Adjusted positioning for welcome text */}
+      <div className="welcome-section">
+        <h1>Welcome to the Personal Finance Manager</h1>
+        <p>Manage your expenses, set budgets, and track financial reports efficiently.</p>
+      </div>
+
       <div className="dashboard-options">
-        <button className="btn btn-info mx-2 my-2" onClick={() => navigate('/expenses')}>
+        <button className="btn btn-info mx-2 my-2" onClick={() => navigate("/expenses")}>
           Track Expenses
         </button>
-        <button className="btn btn-warning mx-2 my-2" onClick={() => navigate('/set-budget')}>
+        <button className="btn btn-warning mx-2 my-2" onClick={() => navigate("/set-budget")}>
           Set Budget
         </button>
-        <button className="btn btn-success mx-2 my-2" onClick={() => navigate('/reports')}>
+        <button className="btn btn-success mx-2 my-2" onClick={() => navigate("/reports")}>
           View Reports
         </button>
       </div>
-      <button className="btn btn-danger mt-4" onClick={() => navigate('/login')}>
-        Logout
-      </button>
     </div>
   );
 };

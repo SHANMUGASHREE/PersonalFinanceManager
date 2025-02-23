@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Auth.css';
 
@@ -19,7 +18,7 @@ const Login = () => {
           <input type="password" placeholder="Password" required />
           <button type="submit" className="btn btn-primary">Login</button>
         </form>
-        <p>Don't have an account? <span onClick={() => navigate('/signup')}>Sign up</span></p>
+        <p>Don&apos;t have an account?<span onClick={() => navigate('/signup')}>Sign up</span></p>
       </div>
     </div>
   );
